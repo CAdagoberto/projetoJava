@@ -1,13 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Bolo</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bolo & Arte</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-    <body>
-        
-    </body>
-    <script src="/src/js/index.js"></script>
+<body>
+  <header class="navbar">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Promoções</a></li>
+        <li><a href="#">Pedidos</a></li>
+        <li><a href="#">Entrar/Cadastrar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner">
+      <img src="imagens/cereja.jpg" alt="Bolo com cerejas"/>
+    </section>
+
+    <section class="info-box">
+      <div class="logo-nome">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Logo" class="logo"/>
+        <div>
+          <h1>BOLO & ARTE</h1>
+          <p class="status">Fechado • Abrimos amanhã às 18h00</p>
+          <p class="localizacao">📍 São Paulo - SP</p>
+        </div>
+      </div>
+      <div class="entrega-box">
+        <button>📦 Calcular taxa e tempo de entrega</button>
+        <div class="sacola-vazia">Sacola vazia</div>
+        <div class="cupom">
+          <p><strong>Tem um Cupom?</strong><br/>Clique e insira o código</p>
+        </div>
+        <button class="fechado">Estabelecimento Fechado</button>
+      </div>
+    </section>
+
+    <section class="produtos">
+      <div class="topo">
+        <select>
+          <option>Lista de categorias</option>
+        </select>
+        <input type="text" placeholder="🔍 Busque por produtos"/>
+      </div>
+
+      <h2>Destaques</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="imagens/morango.jpg" alt="Morango"/>
+          <h3>Morango</h3>
+          <p>containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including</p>
+          <div class="preco">
+            <span class="atual">R$ 50,00</span> <span class="antigo">R$ 75,00</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="imagens/chocolate.jpg" alt="Chocolate"/>
+          <h3>Chocolate</h3>
+          <p>containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including</p>
+          <div class="preco">
+            <span class="atual">R$ 50,00</span> <span class="antigo">R$ 75,00</span>
+          </div>
+        </div>
+        <div class="card">
+          <img src="imagens/brigadeiro.jpg" alt="Brigadeiro"/>
+          <h3>Brigadeiro</h3>
+          <p>containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including</p>
+          <div class="preco">
+            <span class="atual">R$ 50,00</span> <span class="antigo">R$ 75,00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
