@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-top: 70px; /* compensa navbar fixa */
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #000;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* BANNER */
+.banner {
+  width: 90%;
+  max-width: 1120px;
+  height: 260px;
+  margin: 2.5rem auto 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* INFO-BOX */
+.info-box {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px 20px;
+  border-radius: 20px;
+  margin-top: -40px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* LOGO E INFORMAÇÕES */
+.logo-nome {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 260px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  object-fit: contain;
+}
+
+.logo-nome h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.status {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.localizacao {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* CAIXA DE ENTREGA */
+.entrega-box {
+  text-align: right;
+  flex-shrink: 0;
+  max-width: 270px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.entrega-box button,
+.fechado {
+  font-weight: bold;
+  border: none;
+  background-color: #333;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 0.5rem;
+}
+
+.entrega-box button:hover,
+.fechado:hover {
+  background-color: #555;
+}
+
+.sacola-vazia {
+  background: #eaeaea;
+  padding: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+  border-radius: 8px;
+}
+
+.cupom {
+  background: #fff;
+  border: 1px dashed #ccc;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+/* PRODUTOS */
+.produtos {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto 2rem auto;
+}
+
+/* TOPO DE BUSCA E CATEGORIA */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.topo select, .topo input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1 1 48%;
+  min-width: 200px;
+  font-size: 1rem;
+}
+
+/* TÍTULOS */
+h2 {
+  font-size: 1.5rem;
+  margin: 1rem 0 1rem;
+  font-weight: bold;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 100%;
+  max-width: 383px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin: 14px 0 8px;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.92rem;
+  color: #555;
+  padding: 0 14px 12px;
+  min-height: 58px;
+}
+
+.preco {
+  padding-bottom: 16px;
+}
+
+.preco .atual {
+  color: green;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.preco .antigo {
+  color: #aaa;
+  text-decoration: line-through;
+  font-size: 0.85rem;
+}
