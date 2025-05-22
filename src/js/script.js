@@ -78,4 +78,4 @@ $(document).ready(function() {
       link.parentElement.classList.remove("active");
     }
 
-
+ });
