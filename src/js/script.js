@@ -58,3 +58,24 @@ $(document).ready(function() {
         distance: '20%'
     })
 });
+
+
+  const navLinks = document.querySelectorAll(".nav-item a");
+
+  // Captura o caminho atual sem parâmetros nem hash
+  const currentPath = window.location.pathname.replace(/\/+$/, ""); // remove barra final
+  const currentFile = currentPath.split("/").pop() || "index.html";
+
+  navLinks.forEach(link => {
+    const linkHref = link.getAttribute("href");
+
+    // Trata hrefs relativos e absolutos
+    const linkFile = linkHref.split("/").pop();
+
+    if (linkFile === currentFile) {
+      link.parentElement.classList.add("active");
+    } else {
+      link.parentElement.classList.remove("active");
+    }
+
+

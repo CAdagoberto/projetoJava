@@ -17,20 +17,28 @@
     --color-neutral-1: #1d1d1d;
 }
 
+/* Reset e padrão global */
 * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+html, body {
+  height: 100%;
+  background-color: var(--color-primary-1); /* ou diretamente #fff9ea */
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
-    background-color: var(--color-primary-1);
+  flex: 1;
+  padding-bottom: 100px; /* evita que conteúdo encoste ou fique atrás do footer fixo */
 }
+
+
 
 section {
     padding: 28px 8%;
@@ -379,6 +387,7 @@ header {
 }
 
 footer {
+    margin-top: 50px;
     background-color: var(--color-primary-2);
 }
 
