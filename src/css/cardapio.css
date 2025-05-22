@@ -22,3 +22,11 @@ body {
  border: 1px solid #ccc;
  border-radius: 8px;
 }
+
+#dishes,
+#product-list {
+  display: flex;
+  flex-wrap: wrap;         /* Permite quebra de linha */
+  justify-content: center; /* Centraliza os cards */
+  gap: 10px;               /* Espaço entre os cards */
+}
