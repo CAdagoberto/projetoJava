@@ -23,6 +23,10 @@ app.get("/cardapio", (req, res) => {
     res.render("cardapio")
 })
 
+app.get("/cart", (req, res) => {
+    res.render("cart")
+})
+
 
 app.listen(8080, () => {
     console.log("Servidor rodando")

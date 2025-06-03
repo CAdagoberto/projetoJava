@@ -1,0 +1,69 @@
+.card {
+    width: 30%;
+    background-color: antiquewhite;
+    min-height: 100%;
+    max-height: auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card h1 {
+    text-align: center;
+}
+
+.card .container_card {
+    min-height: 100%;
+    width: 100%;
+    padding: 15px;
+}
+
+.container_card .pedido {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 20px;
+    height: 110px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.container_card .pedido:hover {
+    height: 130px;
+}
+
+.container_card .btn-default {
+    width: 100%;
+    height: 55px;
+    margin-top: auto;
+}
+
+.pedido .cont_img {
+
+    margin-right: 10px;
+}
+
+.cont_img img {
+    width: 90px;
+    border-radius: 10px;
+}
+
+.cont_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont_text h3 {
+    margin-bottom: 10px;
+    margin-right: auto;
+}
+
+.cont_text p {
+font-size: 14px;
+color: #3f3f3f;
+}
+
