@@ -35,17 +35,17 @@ $(document).ready(function () {
     });
 
     // Animações ScrollReveal
-    ScrollReveal().reveal('#cta, .dish, #testimonial_chef, .feedback, .pedido', {
+    ScrollReveal().reveal('#cta, .dish, #testimonial_chef, .feedback', {
         origin: 'left',
         duration: 2000,
         distance: '20%',
         interval: 200
     });
 
-    // Toggle lateral (sidebar do card)
-    $('#card').on('click', function () {
-        $('#cart').toggleClass('active');
-    });
+$('#nav_card').on('click', function () {
+    $('.card').toggleClass('active');
+});
+
 
     // Marca o link ativo no menu com base na URL
     const currentPath = window.location.pathname.replace(/\/+$/, "");
