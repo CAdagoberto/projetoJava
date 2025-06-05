@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+
+<body>
+  <%- include('partials/navbar') %>
+
+  <section id="admin-pedidos">
+    <h2 class="section-title">Pedidos Recebidos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Produto</th>
+          <th>Status</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#001</td>
+          <td>João</td>
+          <td>Bolo de Morango</td>
+          <td><span style="color: orange;">Pendente</span></td>
+          <td><button class="btn-default">Atualizar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <%- include('partials/footer') %>
+
+</body>
+
+
+<%- include('partials/headerFinal') %>

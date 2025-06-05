@@ -33,7 +33,7 @@ html, body {
   flex-direction: column;
 }
 
-body {
+body, main {
   flex: 1;
   padding-bottom: 100px; /* evita que conteúdo encoste ou fique atrás do footer fixo */
 }

@@ -26,6 +26,10 @@ app.get("/cardapio", (req, res) => {
     res.render("cardapio")
 })
 
+app.get("/pedidos", (req, res) => {
+    res.render("pedidos")
+})
+
 
 
 app.listen(8080, () => {

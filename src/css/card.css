@@ -6,13 +6,13 @@
 .card {
     position: fixed;
     top: 0;
-    right: -550px; /* Escondido inicialmente à esquerda */
+    left: -550px; /* Escondido inicialmente à esquerda */
     width: 550px;
     height: 100vh;
     background-color: #fff;
     box-shadow: 5px 0 15px rgba(0,0,0,0.2);
     padding: 20px;
-    transition: right 0.3s ease;
+    transition: left 0.3s ease;
     z-index: 1000;
     /* seus estilos originais */
     background-color: antiquewhite;
@@ -25,7 +25,7 @@
 }
 
 .card.active {
-    right: 0;
+    left: 0;
 }
 
 .card h1 {
