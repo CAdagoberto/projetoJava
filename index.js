@@ -4,6 +4,9 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser')
 const path = require('path')
 
+app.use(express.static('src'));
+
+
 app.use('/src', express.static(path.join(__dirname, 'src')));
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -23,9 +26,6 @@ app.get("/cardapio", (req, res) => {
     res.render("cardapio")
 })
 
-app.get("/cart", (req, res) => {
-    res.render("cart")
-})
 
 
 app.listen(8080, () => {

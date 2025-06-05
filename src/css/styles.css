@@ -503,3 +503,21 @@ footer {
 
 
 } 
+
+#sidebar-card {
+    position: fixed;
+    top: 0;
+    left: -400px; /* Escondido inicialmente à esquerda */
+    width: 350px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar-card.active {
+    left: 0; /* Move para dentro da tela */
+}
+

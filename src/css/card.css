@@ -1,12 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+
 .card {
     width: 30%;
     background-color: antiquewhite;
     min-height: 100%;
-    max-height: auto;
+
     padding: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-left: auto;
 }
 
 .card h1 {
@@ -27,8 +33,9 @@
     display: flex;
     margin-bottom: 20px;
     height: 110px;
-    transition: .5s;
+   transition: height 0.5s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .container_card .pedido:hover {
@@ -65,5 +72,22 @@
 .cont_text p {
 font-size: 14px;
 color: #3f3f3f;
+}
+
+#cart {
+    position: fixed;
+    top: 0;
+    left: -400px; /* Escondido inicialmente à esquerda */
+    width: 350px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+#cart.active {
+    left: 0; /* Move para dentro da tela */
 }
 

@@ -1,81 +1,63 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    // Toggle do menu mobile
     $('#mobile_btn').on('click', function () {
         $('#mobile_menu').toggleClass('active');
-        $('#mobile_btn').find('i').toggleClass('fa-x');
+        $(this).find('i').toggleClass('fa-x');
     });
 
+    // Scroll: adiciona sombra no header e ativa item do menu
     const sections = $('section');
     const navItems = $('.nav-item');
 
     $(window).on('scroll', function () {
         const header = $('header');
         const scrollPosition = $(window).scrollTop() - header.outerHeight();
-
         let activeSectionIndex = 0;
 
         if (scrollPosition <= 0) {
             header.css('box-shadow', 'none');
         } else {
-            header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1');
+            header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1)');
         }
 
-        sections.each(function(i) {
-            const section = $(this);
-            const sectionTop = section.offset().top - 96;
-            const sectionBottom = sectionTop+ section.outerHeight();
+        sections.each(function (i) {
+            const sectionTop = $(this).offset().top - 96;
+            const sectionBottom = sectionTop + $(this).outerHeight();
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 activeSectionIndex = i;
                 return false;
             }
-        })
+        });
 
         navItems.removeClass('active');
         $(navItems[activeSectionIndex]).addClass('active');
     });
 
-    ScrollReveal().reveal('#cta', {
+    // Animações ScrollReveal
+    ScrollReveal().reveal('#cta, .dish, #testimonial_chef, .feedback, .pedido', {
         origin: 'left',
         duration: 2000,
-        distance: '20%'
+        distance: '20%',
+        interval: 200
     });
 
-    ScrollReveal().reveal('.dish', {
-        origin: 'left',
-        duration: 2000,
-        distance: '20%'
+    // Toggle lateral (sidebar do card)
+    $('#card').on('click', function () {
+        $('#cart').toggleClass('active');
     });
 
-    ScrollReveal().reveal('#testimonial_chef', {
-        origin: 'left',
-        duration: 1000,
-        distance: '20%'
-    })
+    // Marca o link ativo no menu com base na URL
+    const currentPath = window.location.pathname.replace(/\/+$/, "");
+    const currentFile = currentPath.split("/").pop() || "index.html";
 
-    ScrollReveal().reveal('.feedback', {
-        origin: 'right',
-        duration: 1000,
-        distance: '20%'
-    })
+    $('.nav-item a').each(function () {
+        const linkFile = $(this).attr('href').split("/").pop();
+
+        if (linkFile === currentFile) {
+            $(this).parent().addClass('active');
+        } else {
+            $(this).parent().removeClass('active');
+        }
+    });
 });
-
-
-  const navLinks = document.querySelectorAll(".nav-item a");
-
-  // Captura o caminho atual sem parâmetros nem hash
-  const currentPath = window.location.pathname.replace(/\/+$/, ""); // remove barra final
-  const currentFile = currentPath.split("/").pop() || "index.html";
-
-  navLinks.forEach(link => {
-    const linkHref = link.getAttribute("href");
-
-    // Trata hrefs relativos e absolutos
-    const linkFile = linkHref.split("/").pop();
-
-    if (linkFile === currentFile) {
-      link.parentElement.classList.add("active");
-    } else {
-      link.parentElement.classList.remove("active");
-    }
-
- });
