@@ -1,20 +1,36 @@
 {
   "produtos": [
     {
-      "id": 1749497234672,
+      "id": 1749499589323,
+      "nome": "Bolo de Cenoura",
+      "descricao": "release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "valor": "150",
+      "recheio": "Cenoura",
+      "imagem": "../src/img/Produtos/Cenoura.jpg"
+    },
+    {
+      "id": 1749499605540,
       "nome": "Bolo de Morango",
       "descricao": "release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "valor": "120",
+      "valor": "150",
       "recheio": "Morango",
       "imagem": "../src/img/Produtos/Morango.jpg"
     },
     {
-      "id": 1749497577645,
-      "nome": "Bolo de Cenoura",
+      "id": 1749499620007,
+      "nome": "Bolo de Cereja",
       "descricao": "release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "valor": "120",
-      "recheio": "Cenoura",
-      "imagem": "../src/img/Produtos/Cenoura.jpg"
+      "valor": "80",
+      "recheio": "Cereja",
+      "imagem": "../src/img/Produtos/Cereja.jpg"
+    },
+    {
+      "id": 1749499648483,
+      "nome": "Bolo de abacaxi",
+      "descricao": "release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "valor": "140",
+      "recheio": "Abacaxi",
+      "imagem": "../src/img/Produtos/Abacaxi.jpg"
     }
   ],
   "pedidos": []

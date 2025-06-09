@@ -24,6 +24,23 @@ app.get("/login", (req, res) => {
     res.render("login")
 })
 
+app.get("/produtos", (req, res) => {
+    const dbPath = path.join(__dirname, 'src', 'database', 'db.json');
+
+    let dados = { produtos: [], pedidos: [] };
+
+    if (fs.existsSync(dbPath)) {
+        const conteudo = fs.readFileSync(dbPath, "utf8");
+        try {
+            dados = JSON.parse(conteudo);
+        } catch (err) {
+            console.error("Erro ao ler o JSON:", err);
+        }
+    }
+
+    res.render("produtos", { produtos: dados.produtos });
+})
+
 app.get("/cardapio", (req, res) => {
     const dbPath = path.join(__dirname, 'src', 'database', 'db.json');
 

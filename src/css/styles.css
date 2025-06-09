@@ -479,6 +479,12 @@ footer {
     color: #8B4513;
 }
 
+.produtos_edit {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1170px) {
     #testimonials {
         flex-direction: column;
