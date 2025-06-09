@@ -1,69 +1,64 @@
- <%- include('partials/head') %>
+<%- include('partials/head') %>
 
- <body>
+<body>
+  <%- include('partials/navbar') %>
 
-   <%- include('partials/navbar') %>
+  <section id="catalogo">
+    <h2 class="section-title">Catálogo</h2>
+    <div id="filters">
+      <input type="text" placeholder="Buscar por nome..." />
+      <select>
+        <option>Todos os sabores</option>
+        <option>Chocolate</option>
+        <option>Frutas</option>
+        <option>Tradicional</option>
+      </select>
+    </div>
+    <div id="product-list">
+      <div id="dishes">
+        <% produtos.forEach(produto => { %>
 
-   <section id="catalogo">
-     <h2 class="section-title">Catálogo</h2>
-     <div id="filters">
-       <input type="text" placeholder="Buscar por nome...">
-       <select>
-         <option>Todos os sabores</option>
-         <option>Chocolate</option>
-         <option>Frutas</option>
-         <option>Tradicional</option>
-       </select>
-     </div>
-     <div id="product-list">
+        <div class="dish">
+          <div class="dish-heart">
+            <i class="fa-solid fa-heart"></i>
+          </div>
 
-       <div id="dishes">
+          <img src="<%= produto.imagem %>" alt="" />
 
-         <% produtos.forEach(produto => { %>
+          <h3 class="dish-title"><%= produto.nome %></h3>
 
-         <div class="dish">
-           <div class="dish-heart">
-             <i class="fa-solid fa-heart"></i>
-           </div>
+          <span class="dish-description"> <%= produto.descricao %> </span>
 
-           <img src="<%= produto.imagem %>" alt="">
+          <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(500+)</span>
+          </div>
 
-           <h3 class="dish-title">
-             <%= produto.nome %>
-           </h3>
+          <div class="dish-price">
+            <h4>R$ <%= produto.valor %></h4>
 
-           <span class="dish-description">
-             <%= produto.descricao %>
-           </span>
+            <button
+              class="btn-default"
+              onclick="adicionarCarrinho(this)"
+              data-nome="<%= produto.nome %>"
+              data-desc="<%= produto.descricao %>"
+              data-valor="<%= produto.valor %>"
+            >
+              <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+          </div>
+        </div>
 
-           <div class="dish-rate">
-             <i class="fa-solid fa-star"></i>
-             <i class="fa-solid fa-star"></i>
-             <i class="fa-solid fa-star"></i>
-             <i class="fa-solid fa-star"></i>
-             <i class="fa-solid fa-star"></i>
-             <span>(500+)</span>
-           </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
 
-           <div class="dish-price">
-             <h4>R$ <%= produto.valor %></h4>
-             <button class="btn-default">
-               <i class="fa-solid fa-basket-shopping"></i>
-             </button>
-           </div>
-         </div>
+  <%- include('partials/footer') %>
+</body>
 
-         <% }) %>
-
-
-
-       </div>
-
-     </div>
-   </section>
-
-   <%- include('partials/footer') %>
-
- </body>
-
- <%- include('partials/headerFinal') %>
+<%- include('partials/headerFinal') %>
