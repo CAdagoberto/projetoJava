@@ -30,6 +30,17 @@ app.get("/pedidos", (req, res) => {
     res.render("pedidos")
 })
 
+app.post("/login", (req, res) => {
+    var {email, senha} = req.body
+
+    if (email == "belladolce@gmail.com" && senha == "123") {
+        res.status(200)
+        res.redirect('pedidos')
+    } else {
+        res.status(404, {err: "senha errada"})
+    }
+})
+
 
 
 app.listen(8080, () => {

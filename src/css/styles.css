@@ -25,6 +25,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-style: normal;
+  font-weight: normal;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+
 html, body {
   height: 100%;
   background-color: var(--color-primary-1); /* ou diretamente #fff9ea */
