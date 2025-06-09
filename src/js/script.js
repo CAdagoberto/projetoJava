@@ -68,7 +68,7 @@ $('#nav_card').on('click', function () {
   recheioSelect.addEventListener('change', () => {
     const valor = recheioSelect.value;
     if (valor) {
-      image.src = `../img/${valor}.jpg`;
+      image.src = `../img/Produtos/${valor}.jpg`;
       image.style.display = 'block';
     } else {
       image.src = '';

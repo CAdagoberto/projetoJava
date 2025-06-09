@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1749490545195,
+    "nome": "teste",
+    "descricao": "asdasd",
+    "valor": "213213",
+    "recheio": "Abacaxi",
+    "imagem": "./src/img/Produtos/Abacaxi.png"
+  }
+]

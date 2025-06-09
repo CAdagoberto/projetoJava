@@ -1,6 +1,7 @@
 /* Página de Catálogo */
 #catalogo {
   padding: 40px 8%;
+  height: 100%;
 }
 
 #filters {
@@ -22,6 +23,11 @@
   flex-wrap: wrap;         /* Permite quebra de linha */
   justify-content: center; /* Centraliza os cards */
   gap: 10px;               /* Espaço entre os cards */
+}
+
+.dish img {
+  width: 300px;
+  border-radius: 20px;
 }
 
 /* Estilo para destacar o item de navegação ativo */
