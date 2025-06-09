@@ -76,16 +76,19 @@ $('#nav_card').on('click', function () {
     }
   });
 });
+// Agora defina a função FORA do $(document).ready)
 function adicionarCarrinho(botao) {
-  const nome = botao.getAttribute('data-nome');
-  const desc = botao.getAttribute('data-desc');
-  const valor = botao.getAttribute('data-valor');
+  const card = botao.closest(".dish");
 
-  const produto = { nome, desc, valor };
+  const nome = card.querySelector(".dish-title").textContent;
+  const descricao = card.querySelector(".dish-description").textContent;
+  const valor = card.querySelector(".dish-price h4").textContent;
 
-  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const produto = { nome, descricao, valor };
+
+  // Salvar no localStorage
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   carrinho.push(produto);
-  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-  alert("Produto adicionado ao carrinho!");
 }

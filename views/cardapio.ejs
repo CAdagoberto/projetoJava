@@ -41,13 +41,7 @@
           <div class="dish-price">
             <h4>R$ <%= produto.valor %></h4>
 
-            <button
-              class="btn-default"
-              onclick="adicionarCarrinho(this)"
-              data-nome="<%= produto.nome %>"
-              data-desc="<%= produto.descricao %>"
-              data-valor="<%= produto.valor %>"
-            >
+            <button class="btn-default" onclick="adicionarCarrinho(this)">
               <i class="fa-solid fa-basket-shopping"></i>
             </button>
           </div>
