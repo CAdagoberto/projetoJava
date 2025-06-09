@@ -60,4 +60,19 @@ $('#nav_card').on('click', function () {
             $(this).parent().removeClass('active');
         }
     });
+
+
+      const recheioSelect = document.getElementById('recheio');
+  const image = document.getElementById('product-image');
+
+  recheioSelect.addEventListener('change', () => {
+    const valor = recheioSelect.value;
+    if (valor) {
+      image.src = `../img/${valor}.jpg`;
+      image.style.display = 'block';
+    } else {
+      image.src = '';
+      image.style.display = 'none';
+    }
+  });
 });

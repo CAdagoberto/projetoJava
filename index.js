@@ -30,6 +30,10 @@ app.get("/pedidos", (req, res) => {
     res.render("pedidos")
 })
 
+app.get("/cadastroProdutos", (req, res) => {
+    res.render("cadastroProduto")
+})
+
 app.post("/login", (req, res) => {
     var {email, senha} = req.body
 
