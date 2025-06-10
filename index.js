@@ -20,7 +20,20 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.render("index")
+    const dbPath = path.join(__dirname, 'src', 'database', 'db.json');
+
+    let dados = { produtos: [], pedidos: [] };
+
+    if (fs.existsSync(dbPath)) {
+        const conteudo = fs.readFileSync(dbPath, "utf8");
+        try {
+            dados = JSON.parse(conteudo);
+        } catch (err) {
+            console.error("Erro ao ler o JSON:", err);
+        }
+    }
+
+    res.render("index", { produtos: dados.produtos });
 })
 
 app.get("/login", (req, res) => {
