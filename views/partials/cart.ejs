@@ -49,11 +49,11 @@
               <img src="../${produto.imagem}" alt="" />
             </div>
             <div class="cont_text">
-              <h3>${produto.nome}</h3>
+              <h3 name="produto">${produto.nome}</h3>
               <p>${produto.descricao}</p>
               <div class="quantidade-controls">
                 <button class="decrementar">-</button>
-                <span class="quantidade">${produto.quantidade}</span>
+                <span class="quantidade" name="quantidade">${produto.quantidade}</span>
                 <button class="incrementar">+</button>
               </div>
             </div>
@@ -107,11 +107,46 @@
       renderCarrinho();
 
       document.getElementById('finalizar')
-        .addEventListener('click', () => {
-          alert('Pedido concluído!');
-          localStorage.removeItem('carrinho');
-          window.location.reload();
+        .addEventListener('click', async () => {
+          if (carrinho.length === 0) {
+            alert('Seu carrinho está vazio!');
+            return;
+          }
+
+          const listaParaSalvar = [];
+          carrinho.forEach(prod => {
+            for (let i = 0; i < prod.quantidade; i++) {
+              listaParaSalvar.push({
+                nome: prod.nome
+                , descricao: prod.descricao
+                , valor: prod.valor
+              });
+            }
+          });
+
+          try {
+            const response = await fetch('/salvarPedidos', {
+              method: 'POST'
+              , headers: {
+                'Content-Type': 'application/json'
+              }
+              , body: JSON.stringify(listaParaSalvar)
+            });
+
+            if (response.ok) {
+              alert('Pedido concluído com sucesso!');
+              localStorage.removeItem('carrinho');
+              window.location.reload();
+            } else {
+              const data = await response.json();
+              alert('Erro ao concluir pedido: ' + (data.erro || 'Desconhecido'));
+            }
+          } catch (error) {
+            alert('Erro na comunicação com o servidor.');
+            console.error(error);
+          }
         });
+
     });
 
   </script>

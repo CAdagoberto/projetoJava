@@ -33,5 +33,62 @@
       "imagem": "../src/img/Produtos/Abacaxi.jpg"
     }
   ],
-  "pedidos": []
+  "pedidos": [
+    {
+      "id": 1749527620300,
+      "itens": [
+        {
+          "nome": "Bolo de Cenoura",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        },
+        {
+          "nome": "Bolo de Morango",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        }
+      ],
+      "total": 600,
+      "data": "2025-06-10T03:53:40.300Z"
+    },
+    {
+      "id": 1749527913785,
+      "itens": [
+        {
+          "nome": "Bolo de Cenoura",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        },
+        {
+          "nome": "Bolo de Morango",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        },
+        {
+          "nome": "Bolo de Cereja",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 80,
+          "quantidade": 2,
+          "total": 160
+        },
+        {
+          "nome": "Bolo de abacaxi",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 140,
+          "quantidade": 3,
+          "total": 420
+        }
+      ],
+      "total": 1180,
+      "data": "2025-06-10T03:58:33.785Z"
+    }
+  ]
 }

@@ -9,27 +9,79 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Cliente</th>
-          <th>Produto</th>
+          <th>Produtos</th>
+          <th>Total</th>
           <th>Status</th>
-          <th>Ação</th>
+          <th>Ação</th> <!-- nova coluna -->
         </tr>
       </thead>
       <tbody>
+        <% if (!pedidos || pedidos.length === 0) { %>
         <tr>
-          <td>#001</td>
-          <td>João</td>
-          <td>Bolo de Morango</td>
-          <td><span style="color: orange;">Pendente</span></td>
-          <td><button class="btn-default">Atualizar</button></td>
+          <td colspan="5">Nenhum pedido recebido.</td>
         </tr>
+        <% } else { %>
+        <% pedidos.forEach(pedido => { %>
+        <tr>
+          <td>#<%= pedido.id %></td>
+          <td>
+            <ul>
+              <% if (Array.isArray(pedido.itens) && pedido.itens.length > 0) { %>
+              <% pedido.itens.forEach(item => { %>
+              <li><%= item.nome %> <span>x<%= item.quantidade %></span></li>
+              <% }) %>
+              <% } else { %>
+              <li>Sem itens</li>
+              <% } %>
+            </ul>
+          </td>
+          <td>
+            R$ <%= (typeof pedido.total === 'number' ? pedido.total.toFixed(2) : '0.00') %>
+          </td>
+          <td><span style="color: green;">Concluído</span></td>
+          <td>
+            <button class="btn-default" data-id="<%= pedido.id %>">Deletar</button>
+          </td>
+        </tr>
+        <% }) %>
+        <% } %>
       </tbody>
+
     </table>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.btn-default')
+        .forEach(button => {
+          button.addEventListener('click', async (e) => {
+            const id = e.target.getAttribute('data-id');
+            if (confirm(`Quer mesmo deletar o pedido #${id}?`)) {
+              try {
+                const response = await fetch(`/deletarPedido/${id}`, {
+                  method: 'DELETE'
+                , });
+                if (response.ok) {
+                  alert('Pedido deletado com sucesso!');
+                  window.location.reload();
+                } else {
+                  alert('Erro ao deletar pedido.');
+                }
+              } catch (err) {
+                alert('Erro na requisição.');
+                console.error(err);
+              }
+            }
+          });
+        });
+    });
+
+  </script>
+
+
   <%- include('partials/footer') %>
 
-</body>
 
+</body>
 
 <%- include('partials/headerFinal') %>

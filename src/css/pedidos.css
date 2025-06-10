@@ -34,3 +34,13 @@
 .btn-default:hover {
  background-color: #ff6a00;
 }
+
+table td ul {
+  padding-left: 1em;
+  margin: 0;
+  list-style-type: disc;
+}
+
+table td ul li {
+  white-space: normal; /* Permite quebra de linha */
+}
