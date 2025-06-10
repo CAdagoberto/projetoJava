@@ -133,18 +133,27 @@
               , body: JSON.stringify(listaParaSalvar)
             });
 
-            if (response.ok) {
-              alert('Pedido concluído com sucesso!');
+            const data = await response.json();
+
+            if (response.ok && data.linkWhatsapp) {
+              // Limpa o carrinho ANTES de redirecionar
               localStorage.removeItem('carrinho');
+              alert('Pedido concluído com sucesso!');
+
+              // Abre o WhatsApp em nova aba
+              window.open(data.linkWhatsapp, '_blank');
+
+              // Opcional: recarregar a página depois
               window.location.reload();
             } else {
-              const data = await response.json();
               alert('Erro ao concluir pedido: ' + (data.erro || 'Desconhecido'));
             }
           } catch (error) {
             alert('Erro na comunicação com o servidor.');
             console.error(error);
           }
+
+
         });
 
     });

@@ -129,25 +129,21 @@ app.post("/salvarPedidos", (req, res) => {
   });
 
   function extrairNumero(valorStr) {
-  // Remove tudo que não seja dígito ou vírgula/ponto decimal
-  // Exemplo: "R$ 150" vira "150"
-  const numeroLimpo = valorStr.replace(/[^\d,.]/g, '').replace(',', '.');
-  return parseFloat(numeroLimpo);
-}
-
+    const numeroLimpo = valorStr.replace(/[^\d,.]/g, '').replace(',', '.');
+    return parseFloat(numeroLimpo);
+  }
 
   const itensComQuantidade = Object.values(agrupado).map(item => {
-  const valorNum = extrairNumero(item.valor);
-  return {
-    nome: item.nome,
-    descricao: item.descricao,
-    valor: valorNum,
-    quantidade: item.quantidade,
-    total: valorNum * item.quantidade
-  };
-});
+    const valorNum = extrairNumero(item.valor);
+    return {
+      nome: item.nome,
+      descricao: item.descricao,
+      valor: valorNum,
+      quantidade: item.quantidade,
+      total: valorNum * item.quantidade
+    };
+  });
 
-  // Calcular total geral do pedido
   const totalPedido = itensComQuantidade.reduce((acc, item) => acc + item.total, 0);
 
   const dbPath = path.join(__dirname, 'src', 'database', 'db.json');
@@ -162,7 +158,6 @@ app.post("/salvarPedidos", (req, res) => {
     }
   }
 
-  // Cria objeto pedido com id e data
   const novoPedido = {
     id: Date.now(),
     itens: itensComQuantidade,
@@ -178,12 +173,33 @@ app.post("/salvarPedidos", (req, res) => {
 
   try {
     fs.writeFileSync(dbPath, JSON.stringify(dados, null, 2), 'utf8');
-    return res.status(201).json({ mensagem: "Pedido salvo com sucesso!", pedido: novoPedido });
+
+    // 👉 Criar mensagem do pedido para WhatsApp
+    let mensagem = `Novo Pedido: #%23${novoPedido.id}\n\nItens:\n`;
+    novoPedido.itens.forEach(item => {
+      mensagem += `- ${item.nome} x${item.quantidade} (R$ ${item.valor.toFixed(2)})\n`;
+    });
+    mensagem += `\nTotal: R$ ${novoPedido.total.toFixed(2)}\n`;
+    mensagem += `Data: ${new Date(novoPedido.data).toLocaleString('pt-BR')}`;
+
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    const numero = '5511941125900'; // Substitua pelo seu número com DDI/DDD
+    const linkWhatsapp = `https://wa.me/${numero}?text=${mensagemCodificada}`;
+
+    // Redireciona para o WhatsApp
+    return res.status(201).json({
+  mensagem: "Pedido salvo com sucesso!",
+  pedido: novoPedido,
+  linkWhatsapp
+});
+
+
   } catch (err) {
     console.error("Erro ao salvar o pedido:", err);
     return res.status(500).json({ erro: "Erro ao salvar o pedido." });
   }
 });
+
 
 
 app.post("/salvarProduto", (req, res) => {
