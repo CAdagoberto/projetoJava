@@ -92,3 +92,23 @@ function adicionarCarrinho(botao) {
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
 }
+
+function atualizarContagemCarrinho() {
+  // Pega o item do localStorage
+  const carrinhoJSON = localStorage.getItem('carrinho');
+  
+  // Se não tiver nada, assume array vazio
+  const carrinho = carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
+  
+  // Conta quantos itens tem
+  const quantidade = carrinho.length;
+  
+  // Pega o span dentro do #nav_card e atualiza o texto
+  const spanContagem = document.querySelector('#nav_card span');
+  if (spanContagem) {
+    spanContagem.textContent = quantidade;
+  }
+}
+
+// Chama a função para atualizar quando a página carregar
+window.addEventListener('DOMContentLoaded', atualizarContagemCarrinho);

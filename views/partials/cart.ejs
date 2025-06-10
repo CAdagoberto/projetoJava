@@ -4,75 +4,117 @@
   <div class="body">
     <div class="card">
       <h1 class="section-title">CARRINHO DE COMPRAS</h1>
-      <div class="container_card">
-
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <div class="pedido">
-          <div class="cont_img">
-            <img src="https://picsum.photos/100" alt="">
-          </div>
-          <div class="cont_text">
-            <h3>Nome do item</h3>
-            <p>It has survived not only five centuries, but also the leap into electronic</p>
-          </div>
-        </div>
-
-        <button class="btn-default">CONCLUIR PEDIDO</button>
-
+      <div class="container_card" id="carrinho-container">
+        <!-- Itens do carrinho vão aqui -->
       </div>
+      <button class="btn-default" id="finalizar">CONCLUIR PEDIDO</button>
     </div>
   </div>
-</body>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById('carrinho-container');
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+      // Agrupar por nome para permitir quantidade
+      const agrupado = {};
+      carrinho.forEach(prod => {
+        if (!agrupado[prod.nome]) {
+          agrupado[prod.nome] = {
+            ...prod
+            , quantidade: 1
+          };
+        } else {
+          agrupado[prod.nome].quantidade++;
+        }
+      });
+
+      carrinho = Object.values(agrupado); // agora o carrinho tem produtos únicos com quantidade
+
+      const renderCarrinho = () => {
+        container.innerHTML = '';
+
+        if (carrinho.length === 0) {
+          container.innerHTML = "<p>Seu carrinho está vazio.</p>";
+          return;
+        }
+
+        carrinho.forEach((produto, index) => {
+          const pedido = document.createElement('div');
+          pedido.classList.add('pedido');
+
+
+          pedido.innerHTML = `
+            <div class="cont_img">
+              <img src="../${produto.imagem}" alt="" />
+            </div>
+            <div class="cont_text">
+              <h3>${produto.nome}</h3>
+              <p>${produto.descricao}</p>
+              <div class="quantidade-controls">
+                <button class="decrementar">-</button>
+                <span class="quantidade">${produto.quantidade}</span>
+                <button class="incrementar">+</button>
+              </div>
+            </div>
+            <button class="remover-btn">Remover</button>
+          `;
+
+          // Eventos de +, -, remover
+          pedido.querySelector('.incrementar')
+            .addEventListener('click', () => {
+              carrinho[index].quantidade++;
+              salvarEAtualizar();
+            });
+
+          pedido.querySelector('.decrementar')
+            .addEventListener('click', () => {
+              if (carrinho[index].quantidade > 1) {
+                carrinho[index].quantidade--;
+              } else {
+                carrinho.splice(index, 1);
+              }
+              salvarEAtualizar();
+            });
+
+          pedido.querySelector('.remover-btn')
+            .addEventListener('click', () => {
+              carrinho.splice(index, 1);
+              salvarEAtualizar();
+            });
+
+          container.appendChild(pedido);
+        });
+      };
+
+      const salvarEAtualizar = () => {
+        // Desagrupar para salvar no localStorage
+        const listaParaSalvar = [];
+        carrinho.forEach(prod => {
+          for (let i = 0; i < prod.quantidade; i++) {
+            listaParaSalvar.push({
+              nome: prod.nome
+              , descricao: prod.descricao
+              , valor: prod.valor
+            });
+          }
+        });
+
+        localStorage.setItem('carrinho', JSON.stringify(listaParaSalvar));
+        renderCarrinho();
+      };
+
+      renderCarrinho();
+
+      document.getElementById('finalizar')
+        .addEventListener('click', () => {
+          alert('Pedido concluído!');
+          localStorage.removeItem('carrinho');
+          window.location.reload();
+        });
+    });
+
+  </script>
+</body>
 
 <%- include("headerFinal") %>

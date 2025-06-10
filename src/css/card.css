@@ -1,91 +1,142 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
 .card {
-    position: fixed;
-    top: 0;
-    left: -550px; /* Escondido inicialmente à esquerda */
-    width: 550px;
-    height: 100vh;
-    background-color: #fff;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
-    padding: 20px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-    /* seus estilos originais */
-    background-color: antiquewhite;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: auto;
-    padding: 30px;
-    min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: -550px; /* Escondido inicialmente à esquerda */
+  width: 550px;
+  height: 100vh;
+  background-color: antiquewhite;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  margin-left: auto;
 }
 
 .card.active {
-    left: 0;
+  left: 0;
 }
 
 .card h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .card .container_card {
-    min-height: 100%;
-    width: 100%;
-    padding: 15px;
+  min-height: 90%;
+  width: 100%;
+  padding: 15px;
 }
 
 .container_card .pedido {
-    background-color: white;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    margin-bottom: 20px;
-    height: 110px;
-   transition: height 0.5s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 20px;
+  height: auto;
+  transition: height 0.5s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  position: relative;
 }
 
 .container_card .pedido:hover {
-    height: 130px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .container_card .btn-default {
-    width: 100%;
-    height: 55px;
-    margin-top: auto;
+  width: 100%;
+  height: 55px;
+  margin-top: auto;
 }
 
 .pedido .cont_img {
-
-    margin-right: 10px;
+  flex-shrink: 0;
+  margin-right: 10px;
 }
 
 .cont_img img {
-    width: 90px;
-    border-radius: 10px;
+  width: 90px;
+  border-radius: 10px;
 }
 
 .cont_text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .cont_text h3 {
-    margin-bottom: 10px;
-    margin-right: auto;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
 }
 
 .cont_text p {
-font-size: 14px;
-color: #3f3f3f;
+  font-size: 14px;
+  color: #3f3f3f;
+  margin: 0;
+  word-break: break-word;
+  line-height: 1.3;
+  padding-right: 70px; /* espaço pro botão remover */
 }
 
+/* Botão Remover */
+.remover-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
 
+.remover-btn:hover {
+  background-color: #e60000;
+}
 
+/* Controles de quantidade */
+.quantidade-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quantidade-controls button {
+  padding: 4px 10px;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.quantidade-controls button:hover {
+  background-color: #ddd;
+}
+
+.quantidade-controls span {
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+}
