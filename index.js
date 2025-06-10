@@ -6,6 +6,8 @@ const path = require('path')
 const db = require('./src/database/db.json')
 const fs = require("fs");
 
+const PORT = process.env.PORT || 8080;
+
 app.use(express.static('src'));
 
 
@@ -329,6 +331,6 @@ app.delete('/deletarProduto/:id', (req, res) => {
 
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("Servidor rodando")
 })
