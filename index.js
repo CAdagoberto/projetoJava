@@ -183,7 +183,7 @@ app.post("/salvarPedidos", (req, res) => {
     mensagem += `Data: ${new Date(novoPedido.data).toLocaleString('pt-BR')}`;
 
     const mensagemCodificada = encodeURIComponent(mensagem);
-    const numero = '5511941125900'; // Substitua pelo seu número com DDI/DDD
+    const numero = '5511995210316'; // Substitua pelo seu número com DDI/DDD
     const linkWhatsapp = `https://wa.me/${numero}?text=${mensagemCodificada}`;
 
     // Redireciona para o WhatsApp
