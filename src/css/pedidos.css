@@ -2,7 +2,8 @@
 
 #admin-pedidos {
  padding: 40px 8%;
- height: 100%;
+ height: 100vh;
+ margin-bottom: 200px;
 }
 #admin-pedidos table {
  width: 100%;

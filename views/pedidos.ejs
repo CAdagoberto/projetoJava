@@ -40,7 +40,7 @@
           </td>
           <td><span style="color: green;">Concluído</span></td>
           <td>
-            <button class="btn-default" data-id="<%= pedido.id %>">Deletar</button>
+            <button class="btn-default deletar-pedido" data-id="<%= pedido.id %>">Deletar</button>
           </td>
         </tr>
         <% }) %>
@@ -52,7 +52,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.btn-default')
+      document.querySelectorAll('.deletar-pedido')
         .forEach(button => {
           button.addEventListener('click', async (e) => {
             const id = e.target.getAttribute('data-id');

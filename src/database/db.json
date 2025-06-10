@@ -23,14 +23,6 @@
       "valor": "80",
       "recheio": "Cereja",
       "imagem": "../src/img/Produtos/Cereja.jpg"
-    },
-    {
-      "id": 1749499648483,
-      "nome": "Bolo de abacaxi",
-      "descricao": "release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "valor": "140",
-      "recheio": "Abacaxi",
-      "imagem": "../src/img/Produtos/Abacaxi.jpg"
     }
   ],
   "pedidos": [
@@ -271,6 +263,69 @@
       ],
       "total": 1850,
       "data": "2025-06-10T17:38:02.410Z"
+    },
+    {
+      "id": 1749582172126,
+      "itens": [
+        {
+          "nome": "Bolo de Cenoura",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        },
+        {
+          "nome": "Bolo de Morango",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 2,
+          "total": 300
+        },
+        {
+          "nome": "Bolo de Cereja",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 80,
+          "quantidade": 2,
+          "total": 160
+        },
+        {
+          "nome": "Bolo de abacaxi",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 140,
+          "quantidade": 2,
+          "total": 280
+        }
+      ],
+      "total": 1040,
+      "data": "2025-06-10T19:02:52.126Z"
+    },
+    {
+      "id": 1749582208438,
+      "itens": [
+        {
+          "nome": "Bolo de Morango",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 150,
+          "quantidade": 1,
+          "total": 150
+        },
+        {
+          "nome": "Bolo de Cereja",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 80,
+          "quantidade": 1,
+          "total": 80
+        },
+        {
+          "nome": "Bolo de abacaxi",
+          "descricao": " release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+          "valor": 140,
+          "quantidade": 1,
+          "total": 140
+        }
+      ],
+      "total": 370,
+      "data": "2025-06-10T19:03:28.438Z"
     }
   ]
 }

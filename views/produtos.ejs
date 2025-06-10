@@ -24,8 +24,7 @@
           <td><%= produto.recheio %></td>
           <td>
             <div class="produtos_edit">
-              <button class="btn-default">Atualizar</button>
-              <button class="btn-default">Deletar</button>
+              <button class="btn-default deletar-produto" data-id="<%= produto.id %>">Deletar</button>
             </div>
           </td>
         </tr>
@@ -33,6 +32,34 @@
       </tbody>
     </table>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.deletar-produto')
+        .forEach(button => {
+          button.addEventListener('click', async (e) => {
+            const id = e.target.getAttribute('data-id');
+            if (confirm(`Quer mesmo deletar o Produto #${id}?`)) {
+              try {
+                const response = await fetch(`/deletarProduto/${id}`, {
+                  method: 'DELETE'
+                });
+                if (response.ok) {
+                  alert('Produto deletado com sucesso!');
+                  window.location.reload();
+                } else {
+                  alert('Erro ao deletar Produto.');
+                }
+              } catch (err) {
+                alert('Erro na requisição.');
+                console.error(err);
+              }
+            }
+          });
+        });
+    });
+
+  </script>
 
   <%- include('partials/footer') %>
 

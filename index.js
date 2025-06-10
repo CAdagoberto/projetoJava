@@ -291,6 +291,42 @@ app.delete('/deletarPedido/:id', (req, res) => {
   }
 });
 
+app.delete('/deletarProduto/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const dbPath = path.join(__dirname, 'src', 'database', 'db.json');
+
+  if (!fs.existsSync(dbPath)) {
+    return res.status(404).json({ erro: "Banco de dados não encontrado." });
+  }
+
+  let dados;
+  try {
+    const conteudo = fs.readFileSync(dbPath, 'utf8');
+    dados = JSON.parse(conteudo);
+  } catch (err) {
+    return res.status(500).json({ erro: "Erro ao ler o banco de dados." });
+  }
+
+  if (!Array.isArray(dados.produtos)) {
+    return res.status(400).json({ erro: "Nenhum produto para deletar." });
+  }
+
+  const indice = dados.produtos.findIndex(pedido => pedido.id === id);
+  if (indice === -1) {
+    return res.status(404).json({ erro: "Produto não encontrado." });
+  }
+
+  dados.produtos.splice(indice, 1);
+
+  try {
+    fs.writeFileSync(dbPath, JSON.stringify(dados, null, 2), 'utf8');
+    return res.status(200).json({ mensagem: "Produto deletado com sucesso." });
+  } catch (err) {
+    return res.status(500).json({ erro: "Erro ao salvar o banco de dados." });
+  }
+});
+
+
 
 
 app.listen(8080, () => {
